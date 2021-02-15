@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import ReactDOM from 'react-dom'
+// import App from './App'
+
+// const root = document.getElementById('root')
+// ReactDOM.render(
+//   <App />,
+//   root
+// )
+
+// import React from 'react'
+import ReactDOM from 'react-dom'
+// import Header from './view/component/header/header'
+// import Index from './view/component/give-good/good'
+// import UserList from './view/component/user-list/list'
+// import FocusInput from './view/component/ref-test/inputFocus'
+
+// import App from './App'
+// import './index.css'
+import Test from './view/component/height-component/use-height'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // [<App></App>,
+  // <FocusInput></FocusInput>],
+  <Test></Test>,
   document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)

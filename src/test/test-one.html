@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="mydiv"></div>
+  <script type="module">
+    const createDOMFromString = (domString) => {
+      const div = document.createElement('div')
+      div.innerHTML = domString
+      return div
+    }
+    const mount = (component, wrapper) => {
+      wrapper.appendChild(component._createDom())
+      component.onStateChange = (oldEl, newEl) => {
+        wrapper.insertBefore(newEl, oldEl)
+        wrapper.removeChild(oldEl)
+      }
+    }
+    // 做一个通用的公共组件
+    class Component {
+      constructor(props = {}) {
+        this.props = props
+      }
+      setState(state) {
+        const oldEl = this.el
+        this.state = state
+        this.el = this._createDom()
+        if (this.onStateChange) this.onStateChange(oldEl, this.el)
+      }
+      _createDom() {
+        this.el = createDOMFromString(this.render())
+        if (this.onClick) {
+          this.el.addEventListener('click', this.onClick.bind(this), false)
+        }
+        return this.el
+      }
+    }
+    // 实现一个组件化的点赞取消功能
+    class Button extends Component{
+      constructor (props) {
+        super(props)
+        this.state = { isLiked: false }
+      }
+
+      onClick () {
+        this.setState({
+          isLiked: !this.state.isLiked
+        })
+      }
+
+      render () {
+        return `
+          <button class='like-btn' style="background-color:${this.props.color}">
+            <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
+            <span>👍</span>
+          </button>
+        `
+      }
+    }
+    const wrapper = document.querySelector('div#mydiv')
+    mount(new Button({color: 'red'}), wrapper)
+    mount(new Button({color: 'yellow'}), wrapper)
+  </script>
+</body>
+</html>
