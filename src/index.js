@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import App from './App'
-import Test from './view/component/height-component/use-height'
+import App from './App'
+
+// 引入css
+import './css/next-player.css'
 
 ReactDOM.render(
-  // [<App></App>,
-  // <FocusInput></FocusInput>],
-  [<Test key="one"></Test>],
+  [<App name="shanghai" key="app"></App>],
   document.getElementById('root')
 )

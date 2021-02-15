@@ -1,5 +1,8 @@
-import Clock from './view/component/clock/clock'
 import React from 'react'
+
+// import view component
+import ShoppingList from './view/component/shopping-list'
+import NextPlayer from './view/component/next-player'
 
 class App extends React.Component {
   constructor () {
@@ -18,10 +21,8 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        {this.state.isShowClock ? <Clock /> : null }
-        <button onClick={this.handleShowOrHide.bind(this)}>
-          显示或隐藏时钟
-        </button>
+        <ShoppingList name="shanghai"></ShoppingList>
+        <NextPlayer></NextPlayer>
       </div>
     )
   }
