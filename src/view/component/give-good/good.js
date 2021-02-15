@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 
 class LikeButton extends Component {
   constructor () {
@@ -33,7 +33,7 @@ class Index extends Component {
     return (
       <div>
         <LikeButton
-          wordings={{likedText: '已赞', unlikedText: '赞'}}
+          wordings={{ likedText: '已赞', unlikedText: '赞' }}
           onClick={() => console.log('Click on like button!')}/>
       </div>
     )

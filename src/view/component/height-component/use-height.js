@@ -1,10 +1,15 @@
-import { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import HeightComponent from './heightComponent'
 
-class Test extends Component {
-  render() {
+class Test extends React.Component {
+  static propTypes = {
+    date: PropTypes.string.isRequired
+  }
+
+  render () {
     return (
-      <div>
+        <div>
         <h1>这是一个测试组件</h1>
         <h2>{ this.props.date }</h2>
       </div>
@@ -12,5 +17,4 @@ class Test extends Component {
   }
 }
 
-Test = HeightComponent(Test)
-export default Test
+export default HeightComponent(Test)

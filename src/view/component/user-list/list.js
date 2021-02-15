@@ -1,8 +1,7 @@
-import {Component} from 'react'
-
+import React, { Component } from 'react'
 
 class UserList extends Component {
-  render() {
+  render () {
     const { user } = this.props
     return (
       <div>
@@ -16,7 +15,7 @@ class UserList extends Component {
 }
 
 class Index extends Component {
-  constructor() {
+  constructor () {
     super()
     this.userlist = [
       { username: 'Jerry', age: 21, gender: 'male' },
@@ -25,7 +24,8 @@ class Index extends Component {
       { username: 'Lucy', age: 20, gender: 'female' }
     ]
   }
-  render() {
+
+  render () {
     return (
       <div>
         {this.userlist.map((item, index) => <UserList user={item} key={ index }></UserList>) }
@@ -35,4 +35,3 @@ class Index extends Component {
 }
 
 export default Index
-

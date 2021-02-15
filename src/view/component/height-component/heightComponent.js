@@ -1,11 +1,11 @@
 // 高阶组件
 
-import { Component } from 'react'
+import React, { Component } from 'react'
 
 // 高阶组件是一个函数
 const HeightComponent = (OldComponent) => {
   class NewComponent extends Component {
-    render() {
+    render () {
       return (
         <OldComponent date="9999999999"></OldComponent>
       )

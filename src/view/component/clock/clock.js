@@ -1,13 +1,14 @@
 import React from 'react'
 
 class Clock extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       date: new Date().toLocaleTimeString()
     }
   }
-  render() {
+
+  render () {
     return (
       <div>
         <h1>现在的时间是:</h1>
@@ -15,24 +16,28 @@ class Clock extends React.Component {
       </div>
     )
   }
-  tick() {
+
+  tick () {
     this.setState({
       date: new Date().toLocaleTimeString()
     })
   }
+
   // 组件即将渲染
-  componentWillMount() {
+  UNSAFE_componentWillMount () {
     console.log('组件即将渲染')
     this.timerId = setInterval(() => {
       this.tick()
-    },1000)
+    }, 1000)
   }
+
   // 组件渲染完毕
-  componentDidMount() {
+  componentDidMount () {
     console.log('组件渲染完毕')
   }
+
   // 组件销毁之前
-  componentWillUnmount() {
+  componentWillUnmount () {
     clearInterval(this.timerId)
   }
 }
